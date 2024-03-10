@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body,#root{
+    height:100vh; 
+}
+
+@font-face {
+    font-family: 'Inika';
+    src: local('Inika'), url(./assets/Inika-Bold.ttf) format('truetype');
+  }
+*{font-family: Inika;}
+
+.loghead{text-shadow: 1px 1px #a7a7a7;}
+
+select:focus{border:2px solid red;}
+
+::selection{
+    background-color:#f97316;
+    color: white;
+}
+::-webkit-scrollbar-thumb{
+    width: 7px;
+    background-color: #f97316;
+    border-radius: 10px;}
+::-webkit-scrollbar{width: 7px;}
