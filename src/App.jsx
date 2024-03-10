@@ -13,8 +13,8 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<StudentLogin />}> */}
           <Route index element={<StudentLogin/>} />
-          <Route path="staff" element={<StaffLogin />} />
-          <Route path="admin" element={<AdminLogin />} />
+          <Route path="/staff" element={<StaffLogin />} />
+          <Route path="/admin" element={<AdminLogin />} />
          
         {/* </Route> */}
       </Routes>
