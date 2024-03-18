@@ -23,7 +23,7 @@ export default function StaffLogin(){
         
     }
     return (
-        <div className="login  h-[88%] max-sm:h-[90%] p-3 sm:p-10 flex justify-center ">
+        <div className="login  h-[88%] max-sm:h-[90%] p-3 sm:p2 flex justify-center ">
                 <div className="border-2 border-orange-300 overflow-hidden sm:shadow-[1px_1px_15px_orange] shadow-orange-500 h-full rounded-3xl w-full sm:w-[70%] flex relative ">
                     <LoginImg img={img}/>
                     <div className=" w-3/5 p-10 max-sm:p-5 max-md:w-full max-md:absolute ">                    

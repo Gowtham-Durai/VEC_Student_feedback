@@ -12,8 +12,18 @@ export default function AdminLogin(){
 
     const blocksubmit=(e)=>{
             e.preventDefault();
-            console.log(inputs);
-            axios.post("http://localhost/api/index.php",inputs);
+   // /Api/
+            // axios.post("http://192.168.1.6/Api/CreateAdmin",inputs).then((response)=>{
+                // console.log( response.data);
+            // });
+
+            axios.get("http://192.168.1.6/Api/getData").then((response)=>{
+
+            
+            console.log(response.data);
+
+            });
+
     }
 
     const handleChange=(e)=>{
@@ -33,7 +43,7 @@ export default function AdminLogin(){
                     <div className="h-full flex flex-col justify-center">
                         
                         <FInput placeholder="Username" onChange={handleChange} />
-                        <FInput placeholder="Password" type="password"  onChange={handleChange} />
+                        <FInput placeholder="Password" type="password" autoComplete="ON " onChange={handleChange} />
                         <FButton >LOGIN</FButton>
                     </div>
                     </form>
