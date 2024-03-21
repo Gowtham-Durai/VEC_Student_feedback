@@ -15,12 +15,10 @@ const [Course,setCourse]=useState();
 const [Sec,setSec]=useState();
 const [Sem,setSem]=useState();
 // const [inputs,setInputs]=useState({});
-const [inputValue, setInputValue] = useState("");
-
     const handleChange = (e) => {
-        console.log(e.target.value);
-        setInputValue(e.target.value);
-    }
+    console.log(e.target.value);
+}
+
 useEffect((e)=>{
             
         axios.get("http://192.168.1.6/Api/getData/course/dept/sec/sem").then((response)=>{
@@ -55,8 +53,7 @@ const blocksubmit=(e)=>{
                             <form action="POST" onSubmit={blocksubmit} className="flex flex-col h-full">
                             <h1 className="loghead  mb-5 text-5xl text-center text-orange-400">Student Login</h1>
                             <div className=" h-full flex flex-col justify-center ">
-                                
-                            <input type="text" value={inputValue} onChange={handleChange} />                                {/* <FInput placeholder="Name" onClick={handleChange}/> */}
+                                <FInput placeholder="Name" onClick={handleChange}/>
                                 <FSelect placeholder="Course"  list={Course}/>
                                 <div className="grid grid-cols-3">
                                 <FSelect placeholder="Dept" list={Dept}/>
