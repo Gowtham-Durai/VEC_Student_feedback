@@ -12,8 +12,19 @@ export default function StaffLogin(){
     // blocking the sumission and sended to 
     const blocksubmit=(e)=>{
             e.preventDefault();
-            console.log(inputs);
-            axios.post("http://localhost/api/staff.php",inputs);
+            axios.post("http://192.168.1.6/Api/Stafflogin",inputs).then((response)=>{
+                var Response=response.data;    
+            console.log( response.data);
+                if(Response["status"]==true){
+                    sessionStorage.setItem("AdminLogin",
+                    (Response["status"]==true)?true:false);
+                    // window.location.href = "/adminPortal";
+                }
+                else{
+                    sessionStorage.setItem("AdminLogin",false);
+                }
+                console.log("-----------------------",sessionStorage.getItem("AdminLogin"));
+            });
     }
 
     const handleChange=(e)=>{

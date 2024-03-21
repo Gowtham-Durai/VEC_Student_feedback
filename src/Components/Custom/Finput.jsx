@@ -10,7 +10,10 @@ function FInput(props){
                          shadow-orange-600 placeholder-orange-400 focus:no-underline
                           ease-in text-orange-500" spellCheck="false"
             onChange={props.onChange}
+            onClick={props.onClick}
             autoComplete={props.autoComplete!=""?"ON":"OFF"}
+            required
+            title={props.placeholder}
             type={props.type}
             name={props.placeholder}
             />

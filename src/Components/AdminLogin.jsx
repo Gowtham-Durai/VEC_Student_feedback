@@ -12,17 +12,28 @@ export default function AdminLogin(){
 
     const blocksubmit=(e)=>{
             e.preventDefault();
-   // /Api/
-            // axios.post("http://192.168.1.6/Api/CreateAdmin",inputs).then((response)=>{
-                // console.log( response.data);
-            // });
+   // /Api/                
 
-            axios.get("http://192.168.1.6/Api/getData").then((response)=>{
-
-            
-            console.log(response.data);
-
+            axios.post("http://192.168.1.6/Api/Adminlogin",inputs).then((response)=>{
+                var Response=response.data;    
+            console.log( response.data);
+                if(Response["status"]==true){
+                    sessionStorage.setItem("AdminLogin",
+                    (Response["status"]==true)?true:false);
+                    window.location.href = "/staff";
+                }
+                else{
+                    sessionStorage.setItem("AdminLogin",false);
+                }
+                console.log("-----------------------",sessionStorage.getItem("AdminLogin"));
             });
+
+            // axios.get("http://192.168.1.6/Api/getData").then((response)=>{
+
+
+            // console.log(response.data);
+
+            // });
 
     }
 

@@ -20,12 +20,12 @@ function App() {
           <Route path="/staff" element={<StaffLogin />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/adminPortal" element={<AdminPortal />} />
+          <Route path="/feedback" element={<StudentFeedback/>} />
       </Routes>
     </BrowserRouter>
 
     {/* Dynamic Content */}
 
-    <StudentFeedback/>
     </>
   )
 }

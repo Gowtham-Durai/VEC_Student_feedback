@@ -25,3 +25,24 @@ select:focus{border:2px solid red;}
     background-color: #f97316;
     border-radius: 10px;}
 ::-webkit-scrollbar{width: 7px;}
+
+.feedback-table thead,.feedback-table thead th {
+    border: 2px solid orange;
+
+}
+.feedback-table tbody td:not(:has(b)) {
+    border: 2px solid orange;
+}
+.feedback-table tbody td:has(b){
+    padding: 5px;
+}
+
+.feedback-table tr ,.feedback-table td ,.feedback-table th {
+    padding: 10px ;
+}
+
+.feedback-table tt{
+    color:rgb(123, 123, 123);
+}
+
+
