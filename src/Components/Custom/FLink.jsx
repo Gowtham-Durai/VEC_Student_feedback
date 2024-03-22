@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
-import { MdGroupAdd } from "react-icons/md";
+// import { MdGroupAdd } from "react-icons/md";
 import { CgNotes } from "react-icons/cg";
 import { MdOutlineLockReset } from "react-icons/md";
 import { FaChalkboardTeacher } from "react-icons/fa";
-
-
+import { IoBookOutline } from "react-icons/io5";
 function LinkIcon(icon){
     const style={color:"red",fontSize:"1.5em"};
     switch(icon){
         case "staff":
             return <FaChalkboardTeacher   style={style} />;
         case "add":
-            return  <MdGroupAdd style={style} />;
+            return  <IoBookOutline   style={style} />;
         case "feedback":
             return <CgNotes  style={style} />;
         case "reset":

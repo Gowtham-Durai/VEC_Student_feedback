@@ -14,7 +14,7 @@ export default function AdminPortal() {
                     <form action="" className="grid grid-flow-row gap-2">
                         <FLink className=" bg-blue-400" icon ="staff">Staff Authendication</FLink>
                         <FLink className=" bg-green-400" icon="reset">Change Admin password</FLink>
-                        <FLink className=" bg-red-400" icon="add">Create</FLink>
+                        <FLink className=" bg-red-400" icon="add">Create Course & Dept</FLink>
                         <FLink className=" bg-orange-400" icon="feedback"> Feeedback Result</FLink>
                         <FButton > <BsDatabaseSlash className=" text-3xl font-semibold" /> RESET</FButton>
 
