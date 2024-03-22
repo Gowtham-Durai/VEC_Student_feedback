@@ -4,45 +4,64 @@ import FInput from "./Custom/Finput";
 import FButton from "./Custom/FButton";
 import LoginImg from "./Custom/LoginImg";
 import FSelect from "./Custom/FSelect";
-import { Link } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios"
 export default function StudentLogin(){
 
+const [form,setForm]=useState({ Course:"",Dept:"",Sec:"",Sem:""});
+const [PostForm,setPostForm]=useState({ Name:"",Course:"",Dept:"",Sec:"",Sem:""});
 
-const [Dept,setDept]=useState();
-const [Course,setCourse]=useState();
-const [Sec,setSec]=useState();
-const [Sem,setSem]=useState();
+function isObjectEmpty(obj) {
+    for (const key in obj) {
+      if (obj[key]=="") {
+        return false; // If any value is empty, return false
+      }
+    }
+    return true; // All values are non-empty, return true
+  }
 // const [inputs,setInputs]=useState({});
     const handleChange = (e) => {
-    console.log(e.target.value);
+        var name=e.target.name;
+        var value=e.target.value;
+        if(name!="Name"){
+            value=form[name][value];
+        }
+        
+        setPostForm(f=>{return {...f ,[name]:value}});
 }
 
-useEffect((e)=>{
+useEffect(()=>{
             
         axios.get("http://192.168.1.6/Api/getData/course/dept/sec/sem").then((response)=>{
             console.log("-----------------------",sessionStorage.getItem("AdminLogin"));
 
                         var data=response.data;
                         console.log(data);
-                        setCourse(c=>data["course"]);
-                        setDept(d=>data["dept"]);
-                        setSec(d=>data["sec"]);
-                        setSem(d=>data["sem"]);
+                        setForm({
+                            Course:data["course"],
+                            Dept:data["dept"],
+                            Sec:data["sec"],
+                            Sem:data["sem"]
+                        });
+                        
+
                     }).catch((error)=>{
                         console.log(error);
                     })
                         
              },[]);
 const blocksubmit=(e)=>{
+    console.log("working");
         e.preventDefault();
-// /Api/
-        // axios.post("http://192.168.1.6/Api/CreateAdmin",inputs).then((response)=>{
-            // console.log( response.data);
-        // });
-
-    
+// /Api/ catch
+        // stringify
+        console.log(PostForm);
+    console.log(isObjectEmpty(PostForm));
+       if(isObjectEmpty(PostForm)){
+        console.log(PostForm);
+    window.location.href="/feedback?course="+PostForm["Course"]+"&&dept="+PostForm["Dept"]+"=&&sem="+PostForm["Sem"]+"&&sec="+PostForm["Sec"];
+    }
 
 }
     return (
@@ -53,12 +72,12 @@ const blocksubmit=(e)=>{
                             <form action="POST" onSubmit={blocksubmit} className="flex flex-col h-full">
                             <h1 className="loghead  mb-5 text-5xl text-center text-orange-400">Student Login</h1>
                             <div className=" h-full flex flex-col justify-center ">
-                                <FInput placeholder="Name" onClick={handleChange}/>
-                                <FSelect placeholder="Course"  list={Course}/>
+                                <FInput placeholder="Name" onChange={handleChange}/>
+                                <FSelect placeholder="Course" onChange={handleChange} list={form["Course"] }/>
                                 <div className="grid grid-cols-3">
-                                <FSelect placeholder="Dept" list={Dept}/>
-                                <FSelect placeholder="Sec" list={Sec}/>
-                                <FSelect placeholder="Sem" list={Sem}/>  
+                                <FSelect placeholder="Dept" onChange={handleChange} list={form["Dept"]}/>
+                                <FSelect placeholder="Sec" onChange={handleChange} list={form["Sec"]}/>
+                                <FSelect placeholder="Sem" onChange={handleChange} list={form["Sem"]}/>  
                                 </div>
                                 <FButton >
                             <Link to="/staff">

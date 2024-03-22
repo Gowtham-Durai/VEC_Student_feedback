@@ -5,7 +5,7 @@
 
     return (
        
-        <select name={props.placeholder} required 
+        <select name={props.placeholder} required onChange={props.onChange}
         className="
         text-nowrap
         text-lg rounded-md m-2 p-3   shadow-[0px_0px_5px_orange]
