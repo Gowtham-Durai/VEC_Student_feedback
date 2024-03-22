@@ -19,13 +19,13 @@ function LinkIcon(icon){
     }
 }
 
- function FLink({className,style,children,icon}){
+ function FLink({className,style,children,icon,to}){
         
     return (
        <Link style={style} className={`mt-auto text-orange-500 border-2 border-orange-500 bg-white p-3 text-xl tracking-wider rounded-xl
                         shadow-orange-400 shadow-md transition-all text-center flex gap-10
                          hover:scale-105 hover:transition-all active:transition-all
-                        ${className}`} type="submit" >
+                        ${className}`} type="submit" to={to} >
                         
                         {LinkIcon(icon)}
                           

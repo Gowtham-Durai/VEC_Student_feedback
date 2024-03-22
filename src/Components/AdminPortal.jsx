@@ -12,10 +12,10 @@ export default function AdminPortal() {
             <LoginImg img={img}/>
             <div className=" w-3/5 p-8 max-sm:p-5 max-md:w-full max-md:absolute ">                    
                     <form action="" className="grid grid-flow-row gap-2">
-                        <FLink className=" bg-blue-400" icon ="staff">Staff Authendication</FLink>
-                        <FLink className=" bg-green-400" icon="reset">Change Admin password</FLink>
-                        <FLink className=" bg-red-400" icon="add">Create Course & Dept</FLink>
-                        <FLink className=" bg-orange-400" icon="feedback"> Feeedback Result</FLink>
+                        <FLink className=" bg-blue-400" icon ="staff" to="/stafflogin">Staff Authendication</FLink>
+                        <FLink className=" bg-green-400" icon="reset" to="/admin">Change Admin password</FLink>
+                        <FLink className=" bg-red-400" icon="add" to="/admin">Create Course & Dept</FLink>
+                        <FLink className=" bg-orange-400" icon="feedback" to="/feedback"> Feeedback Result</FLink>
                         <FButton > <BsDatabaseSlash className=" text-3xl font-semibold" /> RESET</FButton>
 
     
