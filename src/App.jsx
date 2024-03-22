@@ -4,6 +4,7 @@ import StaffLogin from "./Components/StaffLogin"
 import StudentFeedback from "./Components/StudentFeedback"
 import StudentLogin from "./Components/StudentLogin"
 import AdminPortal from "./Components/AdminPortal"
+import Staff from "./Components/Staff"
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
     <BrowserRouter>
       <Routes>
           <Route index element={<StudentLogin/>} />
-          <Route path="/staff" element={<StaffLogin />} />
+          <Route path="/stafflogin" element={<StaffLogin />} />
+          <Route path="/staff" element={<Staff/>}/>
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/adminPortal" element={<AdminPortal />} />
           <Route path="/feedback" element={<StudentFeedback/>} />

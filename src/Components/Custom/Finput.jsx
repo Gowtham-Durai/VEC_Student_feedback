@@ -13,6 +13,9 @@ function FInput(props){
             onClick={props.onClick}
             autoComplete={props.autoComplete!=""?"ON":"OFF"}
             required
+            
+            min={props.min}
+            max={props.max}
             title={props.placeholder}
             type={props.type}
             name={props.placeholder}
@@ -28,7 +31,3 @@ FInput.defaultProps={
     type:"text"
 }
 export default FInput;
-// prototypes={
-//     placeholder:Prototypes.string,
-//     type:Prototypes.string
-// }

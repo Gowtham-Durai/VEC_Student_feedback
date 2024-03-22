@@ -1,4 +1,4 @@
-import img from "../assets/VEC/student.svg"
+import img from "../assets/VEC/staff.svg"
 import Brand from "./Custom/Brand";
 import FInput from "./Custom/Finput";
 import FButton from "./Custom/FButton";
@@ -7,18 +7,20 @@ import FSelect from "./Custom/FSelect";
 import {  Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios"
-import {isObjectEmpty} from "../Components/includes"
+import { isObjectEmpty } from "./includes";
 export default function StudentLogin(){
 
-const [form,setForm]=useState({ Course:"",Dept:"",Sec:"",Sem:""});
-const [PostForm,setPostForm]=useState({ Name:"",Course:"",Dept:"",Sec:"",Sem:""});
+const [form,setForm]=useState({ Course:"",Sec:"",Sem:""});
+const [PostForm,setPostForm]=useState({ "No of Subjects":"",Course:"",Sec:"",Sem:""});
 
 
 // const [inputs,setInputs]=useState({});
     const handleChange = (e) => {
         var name=e.target.name;
         var value=e.target.value;
-        if(name!="Name"){
+      
+    //    console.log();
+        if(name!="No of Subjects"){
             value=form[name][value];
         }
         
@@ -34,7 +36,6 @@ useEffect(()=>{
                         console.log(data);
                         setForm({
                             Course:data["course"],
-                            Dept:data["dept"],
                             Sec:data["sec"],
                             Sem:data["sem"]
                         });
@@ -50,11 +51,10 @@ const blocksubmit=(e)=>{
         e.preventDefault();
 // /Api/ catch
         // stringify
+
+    if(isObjectEmpty(PostForm)){
         console.log(PostForm);
-    console.log(isObjectEmpty(PostForm));
-       if(isObjectEmpty(PostForm)){
-        console.log(PostForm);
-    window.location.href="/feedback?course="+PostForm["Course"]+"&&dept="+PostForm["Dept"]+"=&&sem="+PostForm["Sem"]+"&&sec="+PostForm["Sec"];
+        window.location.href="/feedback?course="+PostForm["Course"]+"&&dept="+PostForm["Dept"]+"=&&sem="+PostForm["Sem"]+"&&sec="+PostForm["Sec"];
     }
 
 }
@@ -64,12 +64,12 @@ const blocksubmit=(e)=>{
                     <LoginImg img={img}/>
                     <div className=" w-3/5 p-10 max-sm:p-5 max-md:w-full max-md:absolute ">                    
                             <form action="POST" onSubmit={blocksubmit} className="flex flex-col h-full">
-                            <h1 className="loghead  mb-5 text-5xl text-center text-orange-400">Student Login</h1>
+                            <h1 className="loghead  mb-5 text-5xl text-center text-orange-400">Staff Updation</h1>
                             <div className=" h-full flex flex-col justify-center ">
-                                <FInput placeholder="Name" onChange={handleChange}/>
-                                <FSelect placeholder="Course" onChange={handleChange} list={form["Course"] }/>
+                                
+                                <FInput placeholder="No of Subjects" onChange={handleChange} type="number" min="1" max={25} />
                                 <div className="grid grid-cols-3">
-                                <FSelect placeholder="Dept" onChange={handleChange} list={form["Dept"]}/>
+                                <FSelect placeholder="Course" onChange={handleChange} list={form["Course"] }/>
                                 <FSelect placeholder="Sec" onChange={handleChange} list={form["Sec"]}/>
                                 <FSelect placeholder="Sem" onChange={handleChange} list={form["Sem"]}/>  
                                 </div>

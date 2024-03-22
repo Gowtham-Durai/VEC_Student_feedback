@@ -4,7 +4,7 @@ import Brand from "./Custom/Brand";
 import FButton from "./Custom/FButton";
 import LoginImg from "./Custom/LoginImg";
 import FLink from "./Custom/FLink";
-
+import { BsDatabaseSlash } from "react-icons/bs";
 export default function AdminPortal() {
     return (
         <div className="login  h-[88%] max-sm:h-[90%]  sm:p-2 flex justify-center ">
@@ -16,7 +16,7 @@ export default function AdminPortal() {
                         <FLink className=" bg-green-400" icon="reset">Change Admin password</FLink>
                         <FLink className=" bg-red-400" icon="add">Create</FLink>
                         <FLink className=" bg-orange-400" icon="feedback"> Feeedback Result</FLink>
-                        <FButton >RESET</FButton>
+                        <FButton > <BsDatabaseSlash className=" text-3xl font-semibold" /> RESET</FButton>
 
     
                     </form>

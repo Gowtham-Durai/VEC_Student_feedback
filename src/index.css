@@ -8,7 +8,7 @@ html,body,#root{
 
 @font-face {
     font-family: 'Inika';
-    src: local('Inika'), url(./assets/Inika-Bold.ttf) format('truetype');
+    src: local('Inika'), url(./assets/font/Inika-Bold.ttf) format('truetype');
   }
 *{font-family: Inika;}
 
@@ -25,6 +25,10 @@ select:focus{border:2px solid red;}
     background-color: #f97316;
     border-radius: 10px;}
 ::-webkit-scrollbar{width: 7px;}
+input{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+}
 
 .feedback-table thead,.feedback-table thead th {
     border: 2px solid orange;
